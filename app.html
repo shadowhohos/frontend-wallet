@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020"><title>NovaPay — Wallet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dashboard-page">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="index.html"><span class="brand-mark">N</span><span>nova<span class="brand-light">pay</span></span></a>
+    <div class="sidebar-label">WORKSPACE</div>
+    <nav class="side-nav"><a class="side-link active" href="#overview"><span>▦</span> Overview</a><a class="side-link" href="#transactions"><span>↔</span> Transactions</a><button class="side-link" type="button" data-open-transfer><span>↗</span> Send money</button><a class="side-link" href="#profile"><span>◉</span> Profile</a></nav>
+    <div class="sidebar-bottom"><div class="demo-note"><span class="live-dot"></span><div><strong>Demo mode</strong><small>Sample wallet data</small></div></div><button class="side-link logout-btn" id="logout-btn"><span>↪</span> Log out</button><div class="sidebar-user"><div class="user-avatar" id="sidebar-avatar">A</div><div><strong id="sidebar-name">Alex Morgan</strong><small id="sidebar-email">alex@example.com</small></div><span class="user-menu">•••</span></div></div>
+  </aside>
+  <main class="dashboard-main">
+    <header class="dash-topbar"><button class="mobile-menu" id="mobile-menu" aria-label="Toggle navigation">☰</button><div><span class="breadcrumb">Workspace</span><span class="breadcrumb-sep">/</span><strong>Overview</strong></div><div class="topbar-right"><span class="demo-badge"><i></i> Demo account</span><button class="icon-button" id="balance-toggle" aria-label="Toggle balance visibility">◉</button><div class="user-avatar small-avatar" id="top-avatar">A</div></div></header>
+    <section class="dashboard-content" id="overview">
+      <div class="welcome-row"><div><div class="eyebrow">YOUR MONEY AT A GLANCE</div><h1>Good to see you, <span id="welcome-name">Alex</span> <span class="wave">✦</span></h1><p>Here's what's happening with your demo wallet.</p></div><button class="btn btn-primary" data-open-transfer>↗ <span>Send money</span></button></div>
+      <div class="dashboard-grid">
+        <article class="balance-card"><div class="balance-card-top"><span>Total balance</span><span class="balance-chip"><i></i> Demo funds</span></div><div class="big-balance" id="big-balance">$4,820.50</div><div class="balance-card-bottom"><div><span>Available demo balance</span><strong id="available-balance">$4,820.50</strong></div><div class="balance-decoration"><span></span><span></span><span></span></div></div></article>
+        <article class="stat-card"><div class="stat-card-top"><span>Money in</span><span class="stat-icon green">↙</span></div><div class="stat-value" id="money-in">$1,850.00</div><div class="stat-caption"><span class="trend-up">↑</span> Demo activity this month</div><div class="stat-sparkline"><i style="height:34%"></i><i style="height:48%"></i><i style="height:42%"></i><i style="height:67%"></i><i style="height:55%"></i><i style="height:78%"></i><i style="height:64%"></i><i style="height:92%"></i><i style="height:82%"></i></div></article>
+        <article class="stat-card"><div class="stat-card-top"><span>Money out</span><span class="stat-icon orange">↗</span></div><div class="stat-value" id="money-out">$324.80</div><div class="stat-caption">Across your demo transactions</div><div class="stat-sparkline warm"><i style="height:55%"></i><i style="height:37%"></i><i style="height:62%"></i><i style="height:43%"></i><i style="height:72%"></i><i style="height:50%"></i><i style="height:86%"></i><i style="height:65%"></i><i style="height:75%"></i></div></article>
+      </div>
+      <div class="content-columns">
+        <section class="panel transactions-panel" id="transactions"><div class="panel-heading"><div><h2>Recent transactions</h2><p>Your latest demo activity</p></div><button class="text-button" id="view-all">View all ↗</button></div><div class="transaction-table-wrap"><table class="transaction-table"><thead><tr><th>Details</th><th>Date</th><th>Status</th><th class="align-right">Amount</th></tr></thead><tbody id="transaction-list"></tbody></table></div><div class="empty-state" id="empty-transactions" hidden>No transactions yet. Try a demo transfer.</div></section>
+        <section class="panel quick-panel"><div class="panel-heading"><div><h2>Quick actions</h2><p>Common things, one click away</p></div></div><button class="quick-action" data-open-transfer><span class="quick-icon violet">↗</span><span><strong>Send money</strong><small>Try a simulated transfer</small></span><b>→</b></button><button class="quick-action" id="download-csv"><span class="quick-icon green">↓</span><span><strong>Export activity</strong><small>Download demo transactions</small></span><b>→</b></button><a class="quick-action" href="#profile"><span class="quick-icon orange">◉</span><span><strong>Account profile</strong><small>View your demo details</small></span><b>→</b></a><div class="security-tip"><span>✦</span><p><strong>Just a prototype</strong><br>This dashboard uses sample data stored in this browser. No real money moves.</p></div></section>
+      </div>
+      <section class="panel profile-panel" id="profile"><div class="panel-heading"><div><h2>Account profile</h2><p>Your local demo account details</p></div><span class="demo-badge"><i></i> Not verified</span></div><div class="profile-details"><div class="profile-field"><small>FULL NAME</small><strong id="profile-name">Alex Morgan</strong></div><div class="profile-field"><small>EMAIL ADDRESS</small><strong id="profile-email">alex@example.com</strong></div><div class="profile-field"><small>ACCOUNT TYPE</small><strong>NovaPay demo</strong></div></div></section>
+      <footer class="dash-footer"><span>NovaPay © 2026</span><span>Demo interface · No real funds or transfers</span></footer>
+    </section>
+  </main>
+  <div class="modal-backdrop" id="transfer-modal" hidden><section class="modal" role="dialog" aria-modal="true" aria-labelledby="transfer-title"><div class="modal-top"><div><div class="eyebrow">DEMO TRANSFER</div><h2 id="transfer-title">Send money</h2><p>Simulate a transfer using sample funds.</p></div><button class="icon-button" id="close-transfer" aria-label="Close dialog">×</button></div><div id="transfer-message" class="form-message" role="status" hidden></div><form id="transfer-form" class="auth-form"><label>Recipient name<input name="recipient" placeholder="e.g. Jamie Smith" minlength="2" required></label><label>Recipient email<input type="email" name="email" placeholder="jamie@example.com" required></label><label>Amount (USD)<div class="amount-input"><span>$</span><input name="amount" type="number" min="0.01" max="4820.50" step="0.01" placeholder="0.00" required></div></label><label>Note (optional)<input name="note" maxlength="100" placeholder="What's it for?"></label><button class="btn btn-primary btn-full btn-lg" type="submit">Simulate transfer →</button></form><p class="auth-footnote">This only changes sample data in your browser.</p></section></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="js/app.js"></script>
+</body>
+</html>
