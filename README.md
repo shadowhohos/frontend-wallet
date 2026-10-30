@@ -1,25 +1,18 @@
-# NovaPay Frontend (demo only)
+# NovaPay Frontend Rebuilt
 
-## Files
-- `index.html` — marketing landing page
-- `auth.html` — login and create-account UI
-- `app.html` — wallet dashboard
-- `css/styles.css` — shared responsive styling
-- `js/auth.js` — demo-only account creation/login
-- `js/app.js` — dashboard demo data and simulated transfers
+## Local run
+1. Start the FastAPI backend from its backend folder, e.g. `uvicorn main:app --reload --host 127.0.0.1 --port 8000`.
+2. Open this folder in VS Code and start Live Server, normally at `http://127.0.0.1:5500`.
+3. `js/config.js` defaults to `http://127.0.0.1:8000/api`.
+4. Register with username, email, and a password of at least 12 characters, then sign in.
 
-## Run locally
-Open `index.html` in a browser, or use VS Code's Live Server extension. For multi-page navigation, a local server is recommended.
+## API routes used
+- `POST /api/register`
+- `POST /api/login` (username or email requires the backend login function to accept both)
+- `GET /api/wallet`
+- `GET /api/transactions`
 
-## Demo behavior
-- Create Account saves demo users in the browser's `localStorage`.
-- Login checks those local demo entries.
-- Dashboard uses sample funds and simulated transfers.
-- Export Activity downloads a CSV file.
-- No backend, Google Sheets, or real payment processing is connected.
+Set `FRONTEND_ORIGINS` in backend `.env` to the exact local frontend origin and restart FastAPI.
 
-## Important security limitations
-This is a frontend prototype only. Passwords are stored in browser `localStorage` for demo functionality and are **not secure**. Never use real passwords or sensitive personal information. Before any real use, remove local demo authentication and connect to a secure backend with server-side password hashing, authorization, secure sessions, validation, rate limiting, and an audited financial ledger. Google Sheets should not be used as the source of truth for real money or financial transfers.
-
-## Deploy to Vercel
-Put these files in the root of your existing Git repository (keeping your current repository backup first), commit, and push. Static HTML works on Vercel without a build command.
+## Important limits
+Current backend has no transfer or profile-edit endpoint, so this frontend does not fake transfers or profile changes. It is a prototype, not a real-money wallet. For Vercel deployment, replace the local API URL with the public HTTPS URL of your deployed backend ending in `/api`; never use 127.0.0.1 on a remote site.
